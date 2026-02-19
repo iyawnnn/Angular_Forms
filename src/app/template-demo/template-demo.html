@@ -1,0 +1,74 @@
+<div class="container mt-5 mb-5">
+  <div class="row justify-content-center">
+
+    <div class="col-md-8">
+      <div class="card shadow">
+        <div class="card-header bg-primary text-white">
+          <h4 class="mb-0">Registration Form</h4>
+        </div>
+        <div class="card-body">
+
+          <form #myForm="ngForm" (ngSubmit)="onSubmit()">
+
+            <div class="mb-3">
+              <label class="form-label">Username</label>
+              <input type="text" class="form-control" name="username" [(ngModel)]="username" placeholder="Enter username" required>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Email</label>
+              <input type="email" class="form-control" name="email" [(ngModel)]="email" placeholder="Enter email" required email>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Password</label>
+              <input type="password" class="form-control" name="password" [(ngModel)]="password" placeholder="Enter password" required minlength="6">
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Role</label>
+              <select class="form-select" name="role" [(ngModel)]="role" required>
+                <option value="" disabled selected>Select role</option>
+                <option value="admin">Admin</option>
+                <option value="user">User</option>
+                <option value="guest">Guest</option>
+              </select>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label d-block">Gender</label>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="gender" value="Male" [(ngModel)]="gender" required>
+                <label class="form-check-label">Male</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="gender" value="Female" [(ngModel)]="gender" required>
+                <label class="form-check-label">Female</label>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Status</label>
+              <select class="form-select" name="status" [(ngModel)]="status" required>
+                <option value="" disabled selected>Select status</option>
+                <option value="Permanent">Permanent</option>
+                <option value="Probationary">Probationary</option>
+              </select>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Comments</label>
+              <textarea class="form-control" name="comments" [(ngModel)]="comments" rows="3" placeholder="Add notes here..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100" [disabled]="!myForm.valid">
+              Submit
+            </button>
+
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
